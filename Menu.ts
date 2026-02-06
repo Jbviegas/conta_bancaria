@@ -1,37 +1,61 @@
-
+import { ContaCorrente } from './src/model/ContaCorrente';
+import { ContaPoupanca } from './src/model/ContaPoupanca';
 import { Colors } from './src/util/Colors';
-import { Conta } from './src/model/Conta';
 import { Input } from "./src/util/Input";
 
 export function main() {
 
     let opcao: number;
 
-    //Instanciar objetos da classe conta
-
-    const c1 = new Conta(1, 1234, "Sofia", 1, 100000.00);
-
-    c1.visualizar();
-
-    //Teste do Método Sacar
-    console.log("\nSacar 100,00 da conta de ", c1.sacar(100.00));
-    console.log("\nSacar 200000,00 da conta de ", c1.sacar(200000.00));
-    console.log("\nSacar 100,00 da conta de ", c1.sacar(100.00));
 
 
-    //Teste do Método Depositar
-    console.log("\nDepositar -10,00 na conta.");
-    c1.depositar(-10.00);
+    // *** Testes da Classe Conta Corrente ***
 
-    console.log("\nDepositar 500,00 na conta.");
-    c1.depositar(500);
+    console.log("\nTestes - Classe Conta Corrente");
 
-    c1.visualizar();
-    //Menu de Opções
+    const cc1 = new ContaCorrente(1, 5678, "Bianca", 1, 200000.00, 2000.00);
+
+    cc1.visualizar();
+  
+    console.log("\nSacar 1000.00");
+    console.log("\n", cc1.sacar(1000.00));
+
+    console.log("\nSacar 200000.00");
+    console.log("\n", cc1.sacar(200000.00));
+
+    console.log("\nDepositar 500.00");
+    cc1.depositar(500.00);
+
+    cc1.visualizar();
+
+
+
+
+    // *** Testes da Classe Conta Poupanca ***
+
+    console.log("\nTestes - Classe Conta Poupança");
+
+    const cp1 = new ContaPoupanca(2, 1234, "Paula", 1, 2000.00, 12);
+
+    cp1.visualizar();
+  
+    console.log("\nSacar 1000.00");
+    console.log("\n", cp1.sacar(1000.00));
+
+    console.log("\nSacar 2100.00");
+    console.log("\n", cp1.sacar(2100.00));
+
+    console.log("\nDepositar 500.00");
+    cp1.depositar(500.00);
+
+    cp1.visualizar();
+
+    console.log("\n");
+
     while (true) {
 
-        console.log(Colors.bg.black, Colors.fg.yellow,
-            "*****************************************************");
+        console.log(Colors.bg.black, Colors.fg.yellow, 
+                    "*****************************************************");
         console.log("                                                     ");
         console.log("                BANCO DO BRAZIL COM Z                ");
         console.log("                                                     ");
@@ -48,17 +72,16 @@ export function main() {
         console.log("            0 - Sair                                 ");
         console.log("                                                     ");
         console.log("*****************************************************");
-        console.log("                                                     ",
-            Colors.reset);
+        console.log("                                                     ", 
+        Colors.reset);
+
+
 
         console.log("Entre com a opção desejada: ");
-        
         opcao = Input.questionInt("");
 
-
         if (opcao === 0) {
-            console.log(Colors.fg.greenstrong,
-                "\nBanco do Brazil com Z - O seu Futuro começa aqui!");
+            console.log(Colors.fg.greenstrong, "\nBanco do Brazil com Z - O seu Futuro começa aqui!");
             sobre();
             console.log(Colors.reset, "");
             process.exit(0);
@@ -66,68 +89,60 @@ export function main() {
 
         switch (opcao) {
             case 1:
-                console.log(Colors.fg.whitestrong,
-                    "\n\nCriar Conta\n\n", Colors.reset);
+                console.log(Colors.fg.whitestrong, "\n\nCriar Conta\n\n", Colors.reset);
 
                 keyPress()
                 break;
             case 2:
-                console.log(Colors.fg.whitestrong,
-                    "\n\nListar todas as Contas\n\n", Colors.reset);
+                console.log(Colors.fg.whitestrong, "\n\nListar todas as Contas\n\n", Colors.reset);
 
                 keyPress()
                 break;
             case 3:
-                console.log(Colors.fg.whitestrong,
-                    "\n\nConsultar dados da Conta - por número\n\n", Colors.reset);
+                console.log(Colors.fg.whitestrong, "\n\nConsultar dados da Conta - por número\n\n", Colors.reset);
 
                 keyPress()
                 break;
             case 4:
-                console.log(Colors.fg.whitestrong,
-                    "\n\nAtualizar dados da Conta\n\n", Colors.reset);
+                console.log(Colors.fg.whitestrong, "\n\nAtualizar dados da Conta\n\n", Colors.reset);
 
                 keyPress()
                 break;
             case 5:
-                console.log(Colors.fg.whitestrong,
-                    "\n\nApagar uma Conta\n\n", Colors.reset);
+                console.log(Colors.fg.whitestrong, "\n\nApagar uma Conta\n\n", Colors.reset);
 
                 keyPress()
                 break;
             case 6:
-                console.log(Colors.fg.whitestrong,
-                    "\n\nSaque\n\n", Colors.reset);
+                console.log(Colors.fg.whitestrong, "\n\nSaque\n\n", Colors.reset);
 
                 keyPress()
                 break;
             case 7:
-                console.log(Colors.fg.whitestrong,
-                    "\n\nDepósito\n\n", Colors.reset);
+                console.log(Colors.fg.whitestrong, "\n\nDepósito\n\n", Colors.reset);
 
                 keyPress()
                 break;
             case 8:
-                console.log(Colors.fg.whitestrong,
-                    "\n\nTransferência entre Contas\n\n", Colors.reset);
+                console.log(Colors.fg.whitestrong, "\n\nTransferência entre Contas\n\n", Colors.reset);
 
                 keyPress()
                 break;
             default:
-                console.log(Colors.fg.whitestrong,
-                    "\nOpção Inválida!\n", Colors.reset);
+                console.log(Colors.fg.whitestrong, "\nOpção Inválida!\n", Colors.reset);
 
                 keyPress()
-                break;
         }
     }
+
+}
 
 
     /* Função com os dados da pessoa desenvolvedora */
     function sobre(): void {
         console.log("\n*****************************************************");
         console.log("Projeto Desenvolvido por: ");
-        console.log("Generation Brasil - generation@generation.org");
+        console.log("Josue barreto Viegas");
         console.log("github.com/conteudoGeneration");
         console.log("*****************************************************");
     }
@@ -137,6 +152,5 @@ export function main() {
         console.log(Colors.reset, "\nPressione enter para continuar...");
         Input.prompt();
     }
-}
 
 main(); 
