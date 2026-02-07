@@ -1,16 +1,25 @@
 import { Colors } from "../util/Colors";
 export abstract class Conta {
 
-    //Atributos da Classe Conta
-    private _numero: number;
+    //Os atributos representam as características / dados que cada objeto da classe Conta vai ter.
+
+    //Os Atributos da Classe Conta São:
+    private _numero: number;/*private significa que esses atributos só podem ser acessados dentro da própria classe Conta 
+    Isso garante:  Segurança dos dados, Controle de acesso (normalmente usando getters e setters)*/
     private _agencia: number;
     private _titular: string;
     private _tipo: number;
     private _saldo: number;
 
     //Método Construtor
+    //O construtor é um método especial que é executado automaticamente quando um objeto é criado a partir da classe.
+    //Para que ele serve? Inicializar (dar valor inicial) aos atributos da classe.
+
     constructor(numero: number, agencia: number, titular: string, tipo: number, saldo: number) {
-        this._numero = numero;
+        //O que significa this? O this faz referência ao objeto que está sendo criado.
+
+        //Objetos Criados
+        this._numero = numero;//this._numero → atributo da classe - numero → valor recebido como parâmetro no construtor
         this._agencia = agencia;
         this._titular = titular;
         this._tipo = tipo;
