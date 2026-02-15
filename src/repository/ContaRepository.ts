@@ -12,6 +12,7 @@ export interface ContaRepository {//Interface define o que deve existir, não co
      não retorne nada (void).” */
     atualizar(conta: Conta): void;
     deletar(numero: number): void;
+    procurarPorTitular(titular:string):void;
 
     //Métodos Bancários
     sacar(numero: number, valor: number): void;
