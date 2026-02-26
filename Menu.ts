@@ -43,11 +43,11 @@ export function main() {
         console.log("Entre com a opção desejada: ");
         opcao = Input.questionInt("");
 
-        if (opcao === 0) {
+        if (opcao === 0) {//Se a opção for igual a 0, ou seja, se o usuário escolher sair do programa
             console.log(Colors.fg.greenstrong, "\nBanco do Brazil com Z - O seu Futuro começa aqui!");
-            sobre();
-            console.log(Colors.reset, "");
-            process.exit(0);
+            sobre();//Chama a função sobre() que exibe os dados da pessoa desenvolvedora
+            console.log(Colors.reset, "");//Reseta a cor do console para a cor padrão
+            process.exit(0);//Encerra o processo do Node.js, ou seja, fecha o programa
         }
 
         switch (opcao) {
